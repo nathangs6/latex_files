@@ -19,6 +19,7 @@
 # If you are unfamiliar with CSON, you can read more about it in the
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+
 '.text.html.basic':
   'General Start/End':
     'prefix': 'el'
@@ -49,6 +50,18 @@
       \\\\end{enumerate}
       $2
     """
+
+# Figures
+  'Include Picture':
+    'prefix': 'incpic'
+    'body': """
+    \\\\begin{figure}[h!]
+      \\\\includegraphics[width=$1in]{./figures/$2}
+      \\\\caption{$3}
+      \\\\label{$4}
+    \\\\end{figure}
+    """
+
 
 # Sections
   'Section':
@@ -83,13 +96,96 @@
       $1
     .\\\\]
     """
+  'Align Block':
+    'prefix': 'aln'
+    'body': """
+    \\\\begin{align*}
+      $1
+    \\\\end{align*}
+    """
+
+# Math Environments
+  'Question':
+    'prefix': 'quest'
+    'body': """
+    \\\\begin{tcolorbox}
+      \\\\textbf{Question \\\\#$1:} $2
+    \\\\end{tcolorbox}
+    """
+  'Inline Proof':
+    'prefix': 'inpf'
+    'body': """
+    \\\\begin{inline_proof}
+      $1
+    \\\\end{inline_proof}
+    """
+  'Solution':
+    'prefix': 'sol'
+    'body': """
+    \\\\begin{solution}
+      $1
+    \\\\end{solution}
+    """
+  'Proof':
+    'prefix': 'pf'
+    'body': """
+    \\\\begin{proof}
+      $1
+    \\\\end{proof}
+    """
+  'Definition':
+    'prefix': 'defn'
+    'body': """
+    \\\\begin{defn}
+      $1
+    \\\\end{defn}
+    """
+  'Theorem':
+    'prefix': 'thm'
+    'body': """
+    \\\\begin{thm}
+      $1
+    \\\\end{thm}
+    """
+  'Lemma':
+    'prefix': 'lem'
+    'body': """
+    \\\\begin{lem}
+      $1
+    \\\\end{lem}
+    """
+  'Proposition':
+    'prefix': 'prop'
+    'body': """
+    \\\\begin{prop}
+      $1
+    \\\\end{prop}
+    """
+
 
 '.latex.tex.text .math.other.string':
   'Fraction':
     'prefix': '//'
     'body': '\\\\frac{$1}{$2}$3'
 
-# Operators
+# Text Stuff
+  'General Text':
+    'prefix': 'txt'
+    'body': '\\\\text{$1}'
+  'Math Roman':
+    'prefix': 'mrm'
+    'body': '\\\\mathrm{$1}'
+  'Math Cal':
+    'prefix': 'mc'
+    'body': '\\\\mathcal{$1}'
+  'Math BlackBoard':
+    'prefix': 'mbb'
+    'body': '\\\\mathbb{$1}'
+  'Math Frak':
+    'prefix': 'mf'
+    'body': '\\\\mathfrak{$1}'
+
+# Operators and Stuff
   'Single Variable Derivative':
     'prefix': 'der'
     'body': '\\\\frac{d$1}{d$2}\\\\bigg\\\\lvert_{$3}$4'
@@ -97,8 +193,22 @@
     'prefix': 'parder'
     'body': '\\\\frac{\\\\partial$1}{\\\\partial$2}\\\\bigg\\\\lvert_{$3}$4'
   'Integral':
-    'prefix': 'int'
+    'prefix': 'intl'
     'body': '\\\\int_{$1}^{$2}$3'
+  'Limit':
+    'prefix': 'lim'
+    'body': '\\\\lim_{$1} $2'
+  'Sum':
+    'prefix': 'sum'
+    'body': '\\\\sum_{$1}^{$2} $3'
+
+# Functions
+  'Square Root':
+    'prefix': 'sqrt'
+    'body': '\\\\sqrt{$1}'
+  'nth Root':
+    'prefix': 'nrt'
+    'body': '\\\\sqrt[$1]{$2}'
 
 # Matrices
   'Bracket Matrix':
@@ -118,6 +228,20 @@
       $2
     """
 
+# Parentheses, Brackets, etc.
+  'Parentheses':
+    'prefix': 'lrp'
+    'body': '\\\\left( $1 \\\\right)'
+  'Brackets':
+    'prefix': 'lrb'
+    'body': '\\\\left[ $1 \\\\right]'
+  'Curly Braces':
+    'prefix': 'lrc'
+    'body': '\\\\left\\\\lbrace $1 \\\\right\\\\rbrace'
+  'Absolute Values':
+    'prefix': 'abs'
+    'body': '\\\\left| $1 \\\\right|'
+
 # Symbols
   'Partial Symbol':
     'prefix': 'par'
@@ -125,6 +249,9 @@
   'phi':
     'prefix': 'phi'
     'body': '\\\\phi'
+  'varphi':
+    'prefix': 'vphi'
+    'body': '\\\\varphi'
   'Phi':
     'prefix': 'Phi'
     'body': '\\\\Phi'
@@ -134,3 +261,41 @@
   'Psi':
     'prefix': 'Psi'
     'body': '\\\\Psi'
+  'omega':
+    'prefix': 'ome'
+    'body': '\\\\omega'
+  'Omega':
+    'prefix': 'Ome'
+    'body': '\\\\Omega'
+  'epsilon':
+    'prefix': 'eps'
+    'body': '\\\\epsilon'
+  'varepsilon':
+    'prefix': 'veps'
+    'body': '\\\\varepsilon'
+  'delta':
+    'prefix': 'del'
+    'body': '\\\\delta'
+  'Delta':
+    'prefix': 'Del'
+    'body': '\\\\Delta'
+  'nabla':
+    'prefix': 'nab'
+    'body': '\\\\nabla'
+  'alpha':
+    'prefix': 'alp'
+    'body': '\\\\alpha'
+  'beta':
+    'prefix': 'bet'
+    'body': '\\\\beta'
+  'gamma':
+    'prefix': 'gam'
+    'body': '\\\\gamma'
+  'Gamma':
+    'prefix': 'Gam'
+    'body': '\\\\Gamma'
+
+# Other
+  'Overline':
+    'prefix': 'ove'
+    'body': '\\\\overline{$1}$2'

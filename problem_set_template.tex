@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry} % page settings
+\usepackage{amsmath} % provides many mathematical environments & tools
+\setlength{\parindent}{0mm}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\usepackage{transparent}
+\usepackage{tcolorbox}
+
+
+
+% Define definition and lemma
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{exmp}{Example}[section]
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{exercise}{Exercise}
+
+% Define proof and solution environments
+\newenvironment{solution}{\textit{Solution:}}{\hfill$\square$ \\}
+\newenvironment{inline_proof}{\textit{Proof:}}{\hfill$\blacksquare$ \\}
+
+
+% Change qed symbol
+\renewcommand{\qed}{\hfill$\blacksquare$}
+
+% Define some symbol shortcuts
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Tau}{\mathcal{T}}
+
+% Declare some common Math Operators
+\DeclareMathOperator{\Real}{\mathrm{Re}}
+\DeclareMathOperator{\Imag}{\mathrm{Im}}
+
+
+
+
+
+\begin{document}
+% Title
+\begin{center}
+\begin{LARGE}
+CC Problem Set \#
+\end{LARGE}
+\end{center}
+
+\begin{tcolorbox}
+	\textbf{Question:}
+\end{tcolorbox}
+
+
+\end{document}
