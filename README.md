@@ -1,5 +1,5 @@
 # latex_files
-This contains the LaTeX files that I commonly use.
-snippets.cson: Contain my Atom snippets.
+This contains the files I frequently use when using LaTeX.
 
-Will be updated in the future with some of my LaTeX templates.
+-problem_set_template.tex: A generic problem set template.
+-snippets.cson: Contain my Atom snippets for .tex files.

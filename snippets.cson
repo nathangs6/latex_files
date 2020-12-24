@@ -56,6 +56,7 @@
     'prefix': 'incpic'
     'body': """
     \\\\begin{figure}[h!]
+      \\\\centering
       \\\\includegraphics[width=$1in]{./figures/$2}
       \\\\caption{$3}
       \\\\label{$4}
@@ -108,9 +109,9 @@
   'Question':
     'prefix': 'quest'
     'body': """
-    \\\\begin{tcolorbox}
-      \\\\textbf{Question \\\\#$1:} $2
-    \\\\end{tcolorbox}
+    \\\\begin{question}
+      $0
+    \\\\end{question}
     """
   'Inline Proof':
     'prefix': 'inpf'
@@ -221,12 +222,7 @@
     """
   'Parentheses Matrix':
     'prefix': 'pmat'
-    'body': """
-      \\\\begin{pmatrix}
-      $1
-      \\\\end{pmatrix}
-      $2
-    """
+    'body': '\\\\begin{pmatrix} $1 \\\\end{pmatrix}'
 
 # Parentheses, Brackets, etc.
   'Parentheses':

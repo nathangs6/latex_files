@@ -1,26 +1,28 @@
+% A generic template for writing problem set solutions / notes in.
 \documentclass{article}
-\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry} % page settings
-\usepackage{amsmath} % provides many mathematical environments & tools
-\setlength{\parindent}{0mm}
-\usepackage{amsthm}
-\usepackage{amssymb}
-
-\usepackage{transparent}
-\usepackage{tcolorbox}
+% Formatting settings
+\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry}
+\setlength{\parindent}{0mm}  % Remove paragraph indenting
 
 
+\usepackage{amsmath}  % Provides a lot of math options
+\usepackage{amsthm}  % Used for theorem styles and proof environment
+\usepackage{amssymb}  % Provides a lot more math symbols
 
-% Define definition and lemma
+%%% Setup Math Related Environments %%%
+% Theorem related styles
 \theoremstyle{plain}
-\newtheorem{thm}{Theorem}[section]
+\newtheorem{thm}{Theorem}
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem*{cor}{Corollary}
 
+% Definition related styles
 \theoremstyle{definition}
-\newtheorem{defn}{Definition}[section]
-\newtheorem{exmp}{Example}[section]
+\newtheorem{defn}{Definition}
+\newtheorem{exmp}{Example}
 
+% Remark related styles
 \theoremstyle{remark}
 \newtheorem*{rem}{Remark}
 \newtheorem*{exercise}{Exercise}
@@ -29,37 +31,38 @@
 \newenvironment{solution}{\textit{Solution:}}{\hfill$\square$ \\}
 \newenvironment{inline_proof}{\textit{Proof:}}{\hfill$\blacksquare$ \\}
 
-
-% Change qed symbol
+% Change qed symbol to the superior blacksquare
 \renewcommand{\qed}{\hfill$\blacksquare$}
 
+
+%%% Setup math related symbols and operators %%%
 % Define some symbol shortcuts
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
-\newcommand{\Tau}{\mathcal{T}}
 
-% Declare some common Math Operators
-\DeclareMathOperator{\Real}{\mathrm{Re}}
-\DeclareMathOperator{\Imag}{\mathrm{Im}}
+% Declare math operators
+% \DeclareMathOperator{\command}{output}
 
 
-
+%%% Setup non-math related environments %%%
+% Setup title
+\newcommand\doctitle[2]{  % Arguments go {course code}{assignment number}
+	\begin{center}
+		\begin{LARGE}
+			#1 Assignment \##2
+		\end{LARGE}
+	\end{center}
+}
+% Setup question environment
+\usepackage{tcolorbox}
+\newenvironment{question}{\begin{tcolorbox}\textbf{Question: }}{\end{tcolorbox}}
 
 
 \begin{document}
-% Title
-\begin{center}
-\begin{LARGE}
-CC Problem Set \#
-\end{LARGE}
-\end{center}
-
-\begin{tcolorbox}
-	\textbf{Question:}
-\end{tcolorbox}
+\doctitle{}{}
 
 
 \end{document}
