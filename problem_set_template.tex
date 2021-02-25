@@ -16,6 +16,7 @@
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem*{cor}{Corollary}
+\newtheorem*{claim}{Claim}
 
 % Definition related styles
 \theoremstyle{definition}
@@ -30,6 +31,7 @@
 % Define proof and solution environments
 \newenvironment{solution}{\textit{Solution:}}{\hfill$\square$ \\}
 \newenvironment{inline_proof}{\textit{Proof:}}{\hfill$\blacksquare$ \\}
+\newenvironment{claim_proof}{\textit{Proof of Claim:}}{\hfill$\framebox(5.166648,5.166648){\rule{1.2ex}{0.6ex}}$ \\}
 
 % Change qed symbol to the superior blacksquare
 \renewcommand{\qed}{\hfill$\blacksquare$}
@@ -58,7 +60,10 @@
 }
 % Setup question environment
 \usepackage{tcolorbox}
-\newenvironment{question}{\begin{tcolorbox}\textbf{Question: }}{\end{tcolorbox}}
+\newenvironment{question}[1]{\begin{tcolorbox}\textbf{Question #1: }}{\end{tcolorbox}}
+
+% Other useful packages
+\usepackage{enumitem}  % Allows for changing the labels of enumerate lists
 
 
 \begin{document}
