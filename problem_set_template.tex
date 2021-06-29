@@ -5,6 +5,8 @@
 \setlength{\parindent}{0mm}  % Remove paragraph indenting
 
 
+
+% Import math packages
 \usepackage{amsmath}  % Provides a lot of math options
 \usepackage{amsthm}  % Used for theorem styles and proof environment
 \usepackage{amssymb}  % Provides a lot more math symbols
@@ -48,16 +50,6 @@
 % Declare math operators
 % \DeclareMathOperator{\command}{output}
 
-
-%%% Setup non-math related environments %%%
-% Setup title
-\newcommand\doctitle[2]{  % Arguments go {course code}{assignment number}
-	\begin{center}
-		\begin{LARGE}
-			#1 Assignment \##2
-		\end{LARGE}
-	\end{center}
-}
 % Setup question environment
 \usepackage{tcolorbox}
 \newenvironment{question}[1]{\begin{tcolorbox}\textbf{Question #1: }}{\end{tcolorbox}}
@@ -66,8 +58,29 @@
 \usepackage{enumitem}  % Allows for changing the labels of enumerate lists
 
 
-\begin{document}
-\doctitle{}{}
+% Setup page style
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Course Code: Assignment \#}  % Put your assignment information here.
+\rfoot{Page \thepage}
 
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\setcounter{equation}{0}
+\setcounter{thm}{0}
+\begin{question}{1}
+  Prove this statement.
+\end{question}
+\begin{inline_proof}
+  Proof of that statement.
+\end{inline_proof}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
