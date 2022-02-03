@@ -1,0 +1,104 @@
+% A generic template for writing problem set solutions / notes in.
+\documentclass{article}
+% Formatting settings
+\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry}
+
+% Import document structure packages
+\usepackage{fancyhdr}  % Extends header and footer
+\usepackage{todonotes}  % Enables todo notes
+\usepackage{float}  % floats
+
+% Import math packages
+\usepackage{amsmath}  % Adds many math options
+\usepackage{amsthm}
+\usepackage{amssymb}  % Adds many math symbols
+
+% Import styling packages
+\usepackage{enumitem}  % Extends the enumerate environment
+\usepackage{parskip}  % Sets paragraph white space
+\usepackage{sectsty}  % Enables section styling
+\usepackage{tabularx}  % Enables table styling
+\usepackage{titling}  % Enables title styling
+\usepackage{titlesec} % Enables more title styling
+\usepackage{tocloft}
+
+% Annotating and referencing
+\usepackage[small, bf, hang]{caption}  % Modifies captions
+\usepackage{subcaption}  % Enables sub-figures and sub-captions
+\usepackage{sidecap}  % Enables side-captions
+\usepackage{hyperref}  % Hyperlinks sections
+\usepackage[noabbrev, nameinlink]{cleveref}  % *Supposedly* better references than \ref
+\usepackage{autonum}  % Only number referenced equations
+\usepackage{wrapfig}  % Allows better figure placement
+
+%% Set document preferences
+% Set figure path
+\graphicspath{{figures/}}
+
+% Set header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Course #: Assignment #}
+\cfoot{\thepage}
+
+% Setup other document styling
+\setlength{\parindent}{0mm}  % Remove paragraph indenting
+
+%%% Setup Math Related Environments %%%
+% Theorem related styles
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+
+% Definition related styles
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+
+% Remark related styles
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+
+% Change qed symbol to the superior blacksquare
+\renewcommand{\qed}{\hfill$\blacksquare$}
+
+%%% Setup math related symbols and operators %%%
+% Define some symbol shortcuts
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+% Define some new commands
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+
+% Define proof and solution environments
+\newenvironment{solution}{\textit{Solution:}}{\hfill$\square$ \\}
+\newenvironment{inline_proof}{\textit{Proof:}}{\hfill$\blacksquare$ \\}
+
+% Setup question environment
+\usepackage{tcolorbox}
+\newenvironment{question}[1]{\begin{tcolorbox}\textbf{Question #1: }}{\end{tcolorbox}}
+
+
+\begin{document}
+
+\begin{question}{1}
+	Suppose $ R \in \C^{m \times m} $ is upper triangular and invertible. Prove that $ R^{-1} $ is also upper triangular.
+\end{question}
+
+\begin{proof}
+	Let $ R_k $ denote the $ k \times k $ submatrix of $ R $ consisting of the first $ k $ columns and $ k $ rows of $ R $. Construct the matrix $ X $ as follows: Let $ e_k^{j} $ denote the $ k $th standard unit vector in $ \C^j $.
+	\begin{align}
+	  X = \begin{pmatrix} X_1 & \dotsb & X_m \end{pmatrix} \text{ such that } X_k = \begin{pmatrix} x_k \\ 0 \end{pmatrix} \text{ with } x_k = R_k^{-1} e_k^k, \; 0 \in \C^{m - k}
+	\end{align}
+	The vector $ x_k $ exists since $ R_k $ is invertible. Notice that $ X $ is upper-triangular. Then,
+	\begin{align}
+	  RX = R \begin{pmatrix} X_1 & \dotsb & X_m \end{pmatrix} = \begin{pmatrix} RX_1 & \dotsb & RX_m \end{pmatrix} = \begin{pmatrix} e_1^m & \dotsb & e_m^m \end{pmatrix} = I_m
+	\end{align}
+	Thus, $ X = R^{-1} $ and we are done.
+\end{proof}
+
+\end{document}
